@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:ex="http://lab30411463155.org/traffic-ontology#"
+         xml:base="http://example.org/lab30411463155#">
+
+  <rdf:Description rdf:about="#Cam_01">
+    <rdf:type rdf:resource="http://example.org/traffic#Camera"/>
+    <ex:locatedIn rdf:resource="#Intersection_A"/>
+    <ex:capturedFrame rdf:resource="#Frame_101"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Intersection_A">
+    <ex:sameLocationAs rdf:resource="#Intersection_B"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Intersection_B">
+    <ex:sameLocationAs rdf:resource="#Intersection_C"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Frame_101">
+    <rdf:type rdf:resource="http://example.org/traffic#ImageFrame"/>
+    <ex:hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-07T10:00:00Z</ex:hasTimestamp>
+    <ex:containsVehicle rdf:resource="#Vehicle_A"/>
+    <ex:containsVehicle rdf:resource="#Vehicle_B"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Vehicle_A">
+    <rdf:type rdf:resource="http://example.org/traffic#Car"/>
+    <ex:hasVIN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VIN123456789</ex:hasVIN>
+    <ex:isNextTo rdf:resource="#Vehicle_B"/>
+    <ex:hasPlate rdf:resource="#Plate_X"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Plate_X">
+    <rdf:type rdf:resource="http://example.org/traffic#LicensePlate"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Vehicle_B">
+    <rdf:type rdf:resource="http://example.org/traffic#Truck"/>
+  </rdf:Description>
+
+</rdf:RDF>
